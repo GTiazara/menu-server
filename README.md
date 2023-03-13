@@ -3,7 +3,8 @@
 ### Lancer le projet
 
 ```
-
+mvn compile 
+mvn spring-boot:run
 ```
 
 ## Dépendances du Projet
