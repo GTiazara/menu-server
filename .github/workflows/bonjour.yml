@@ -9,4 +9,5 @@ jobs:
       options: --user=root
     steps:
       - uses: actions/checkout@v3 # Récupère le contenu du dépôt correspondant au commit du workflow en cours
+      - run: ls -l
       - run: cat README.md | cowsay
