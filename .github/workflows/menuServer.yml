@@ -17,3 +17,4 @@ jobs:
           maven-version: 3.8.6
       - run: mvn clean
       - run: mvn compile
+      - run: mvn package
