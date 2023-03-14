@@ -18,5 +18,4 @@ jobs:
         uses: Code-Hex/neo-cowsay-action@v1
         with:
           message: "${{ steps.package.outputs.content }}"
-          cow: 'random' # If specified, it shows random ascii art.
-          cowsay_on_comment: true
+          cow: "random" # If specified, it shows random ascii art.
