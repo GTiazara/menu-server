@@ -15,4 +15,4 @@ jobs:
         uses: stCarolas/setup-maven@v4.5
         with:
           maven-version: 3.8.6
-      - run: mvn compile && mvn spring-boot:run
+      - run: mvn compile
