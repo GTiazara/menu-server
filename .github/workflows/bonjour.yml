@@ -8,4 +8,5 @@ jobs:
       - run: ls -l ${{ github.workspace }} # Liste les fichier du répertoire courant
       - name: Check out repository code
         uses: actions/checkout@v3
+      - run: ${{ github.repository }}
       - run: cat README.md # Affiche le contenu du fichier `README.md` à la base du dépôt
