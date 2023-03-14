@@ -25,7 +25,7 @@ public class MenuController {
 
   private final ListMenuService listMenuService;
 
-  private final MenuRepository menuRepository
+  private final MenuRepository menuRepository;
 
   @Autowired
   MenuController(CreateMenuService createMenuService, ListMenuService listMenuService, MenuRepository menuRepository) {
