@@ -1,6 +1,14 @@
 name: menu-server
 on:
-  - push
+  push:
+    branches:
+      - "main"
+      - "implement-delete"
+  pull_request:
+    types:
+      - "opened"
+      - "reopened"
+
 jobs:
   menu_server:
     runs-on: ubuntu-22.04
