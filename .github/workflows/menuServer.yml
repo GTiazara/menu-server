@@ -1,13 +1,7 @@
 name: menu-server
 on:
-  push:
-    branches:
-      - "main"
-      - "implement-delete"
-  pull_request:
-    types:
-      - "opened"
-      - "reopened"
+  - push
+  - pull_request
 
 jobs:
   menu_server:
