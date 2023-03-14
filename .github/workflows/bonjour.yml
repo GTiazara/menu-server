@@ -5,6 +5,7 @@ jobs:
   dire_bonjour:
     runs-on: ubuntu-22.04
     steps:
+      - run: apt-get -y install cowsay
       - run: ls -l ${{ github.workspace }} # Liste les fichier du répertoire courant
       - uses: actions/checkout@v3
         with:
