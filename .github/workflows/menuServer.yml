@@ -23,3 +23,6 @@ jobs:
       - run: mvn test
       - run: mvn package
       - run: mvn verify -DskipUnitTests=true
+
+      - if: startsWith(github.event.ref, 'refs/tags/v')
+        run: gh release create ./target/menuserver.jar
