@@ -1,5 +1,6 @@
 package com.cicdlectures.menuserver.controller;
 
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.net.URL;
@@ -18,6 +19,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.annotation.DirtiesContext;
 
+import com.cicdlectures.menuserver.dto.DishDto;
 import com.cicdlectures.menuserver.dto.MenuDto;
 import com.cicdlectures.menuserver.model.Dish;
 import com.cicdlectures.menuserver.model.Menu;
@@ -59,9 +61,28 @@ public class MenuControllerIT {
     @Test
     @DisplayName("lists all known menus")
     public void listsAllMenus() throws Exception {
+        // On declare la valeur attendue.
+        MenuDto[] wantMenus = {
+                new MenuDto(Long.valueOf(1), "Christmas menu",
+                        new HashSet<DishDto>(
+                                Arrays.asList(new DishDto(Long.valueOf(1), "Turkey"),
+                                        new DishDto(Long.valueOf(2), "Pecan Pie")))),
+                new MenuDto(Long.valueOf(2), "New year's eve menu", new HashSet<DishDto>(
+                        Arrays.asList(new DishDto(Long.valueOf(3), "Potatos"),
+                                new DishDto(Long.valueOf(4), "Tiramisu")))) };
+
+        // On fait la requête et on recupere la reponse.
         ResponseEntity<MenuDto[]> response = this.template.getForEntity(getMenusURL().toString(), MenuDto[].class);
 
+        // On verifie le status de reponse.
         assertEquals(HttpStatus.OK, response.getStatusCode());
+
+        // On list le corps de la reponse.
+        MenuDto[] gotMenus = response.getBody();
+
+        // On verifie que la reponse est la meme que celle attendue.
+        assertArrayEquals(wantMenus, gotMenus);
+
     }
 
 }
